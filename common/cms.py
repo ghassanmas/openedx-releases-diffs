@@ -516,6 +516,16 @@ FEATURES = {
     #   in the LMS and CMS.
     # .. toggle_tickets: 'https://github.com/open-craft/edx-platform/pull/429'
     'DISABLE_UNENROLLMENT': False,
+
+    # .. toggle_name: FEATURES['DISABLE_ADVANCED_SETTINGS']
+    # .. toggle_implementation: DjangoSetting
+    # .. toggle_default: False
+    # .. toggle_description: Set to `True` to disable the advanced settings page in Studio for all users except those
+    #   having `is_superuser` or `is_staff` set to `True`.
+    # .. toggle_use_cases: open_edx
+    # .. toggle_creation_date: 2023-03-31
+    # .. toggle_tickets: https://github.com/openedx/edx-platform/pull/32015
+    'DISABLE_ADVANCED_SETTINGS': False,
 }
 
 # .. toggle_name: ENABLE_COPPA_COMPLIANCE
@@ -926,7 +936,6 @@ P3P_HEADER = 'CP="Open EdX does not have a P3P policy."'
 
 # Import after sys.path fixup
 from xmodule.modulestore.inheritance import InheritanceMixin
-from xmodule.modulestore import prefer_xmodules
 from xmodule.x_module import XModuleMixin
 
 # These are the Mixins that should be added to every XBlock.
@@ -940,8 +949,6 @@ XBLOCK_MIXINS = (
     AuthoringMixin,
 )
 XBLOCK_EXTRA_MIXINS = ()
-
-XBLOCK_SELECT_FUNCTION = prefer_xmodules
 
 # Paths to wrapper methods which should be applied to every XBlock's FieldData.
 XBLOCK_FIELD_DATA_WRAPPERS = ()
@@ -1008,7 +1015,7 @@ MODULESTORE = {
                     'ENGINE': 'xmodule.modulestore.split_mongo.split_draft.DraftVersioningModuleStore',
                     'DOC_STORE_CONFIG': DOC_STORE_CONFIG,
                     'OPTIONS': {
-                        'default_class': 'xmodule.hidden_module.HiddenDescriptor',
+                        'default_class': 'xmodule.hidden_block.HiddenBlock',
                         'fs_root': DATA_DIR,
                         'render_template': 'common.djangoapps.edxmako.shortcuts.render_to_string',
                     }
@@ -1018,7 +1025,7 @@ MODULESTORE = {
                     'ENGINE': 'xmodule.modulestore.mongo.DraftMongoModuleStore',
                     'DOC_STORE_CONFIG': DOC_STORE_CONFIG,
                     'OPTIONS': {
-                        'default_class': 'xmodule.hidden_module.HiddenDescriptor',
+                        'default_class': 'xmodule.hidden_block.HiddenBlock',
                         'fs_root': DATA_DIR,
                         'render_template': 'common.djangoapps.edxmako.shortcuts.render_to_string',
                     }
@@ -1246,6 +1253,8 @@ EMBARGO_SITE_REDIRECT_URL = None
 ##### custom vendor plugin variables #####
 # JavaScript code can access this data using `process.env.JS_ENV_EXTRA_CONFIG`
 # One of the current use cases for this is enabling custom TinyMCE plugins
+# (TINYMCE_ADDITIONAL_PLUGINS) and overriding the TinyMCE configuration
+# (TINYMCE_CONFIG_OVERRIDES).
 JS_ENV_EXTRA_CONFIG = {}
 
 ############################### PIPELINE #######################################
@@ -1579,7 +1588,7 @@ INSTALLED_APPS = [
     # Monitor the status of services
     'openedx.core.djangoapps.service_status',
 
-    # Video module configs (This will be moved to Video once it becomes an XBlock)
+    # Video block configs (This will be moved to Video once it becomes an XBlock)
     'openedx.core.djangoapps.video_config',
 
     # edX Video Pipeline integration
@@ -2408,7 +2417,7 @@ ANALYTICS_DASHBOARD_NAME = 'Your Platform Name Here Insights'
 COMMENTS_SERVICE_URL = 'http://localhost:18080'
 COMMENTS_SERVICE_KEY = 'password'
 
-EXAMS_SERVICE_URL = 'http://localhost:8740/api/v1'
+EXAMS_SERVICE_URL = 'http://localhost:18740/api/v1'
 EXAMS_SERVICE_USERNAME = 'edx_exams_worker'
 
 FINANCIAL_REPORTS = {
@@ -2682,8 +2691,6 @@ COURSE_LIVE_HELP_URL = "https://edx.readthedocs.io/projects/edx-partner-course-s
 # keys for  big blue button live provider
 COURSE_LIVE_GLOBAL_CREDENTIALS = {}
 
-PERSONALIZED_RECOMMENDATION_COOKIE_NAME = 'edx-user-personalized-recommendation'
-
 ######################## Registration ########################
 
 # Social-core setting that allows inactive users to be able to
@@ -2692,3 +2699,13 @@ INACTIVE_USER_LOGIN = True
 
 # Redirect URL for inactive user. If not set, user will be redirected to /login after the login itself (loop)
 INACTIVE_USER_URL = f'http://{CMS_BASE}'
+
+######################## BRAZE API SETTINGS ########################
+
+EDX_BRAZE_API_KEY = None
+EDX_BRAZE_API_SERVER = None
+
+BRAZE_COURSE_ENROLLMENT_CANVAS_ID = ''
+
+DISCUSSIONS_INCONTEXT_FEEDBACK_URL = ''
+DISCUSSIONS_INCONTEXT_LEARNMORE_URL = ''
