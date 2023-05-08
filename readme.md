@@ -9,7 +9,7 @@ To utilize just pick which release are you currently using and then pick which o
 
 | From/To | Aspen | Birch | Cypress | Dogwood | Eucalyptus| Ficus| Ginkgo | Ironwood | Hawthorn | Juniper| Koa| Lilac | Maple | Nutmeg | Olive | Palm| 
 |-------- | ------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |------- |
-| Aspen | N/A  | [Aspen To Birch](./compare/aspen...birhch) | url | url |  url | url | url | url | url | url | url | url | url |  url |  url |  url | 
+| Aspen | N/A  | [Aspen To Birch](./compare/aspen...birch) | url | url |  url | url | url | url | url | url | url | url | url |  url |  url |  url | 
 | Birch |  N/A  | N/A | url | url |  url | url | url | url | url | url | url | url | url |  url |  url |  url | 
 | Cypress | N/A  | N/A | N/A | url |  url | url | url | url | url | url | url | url | url |  url |  url |  url | 
 Dogwood | N/A  | N/A | N/A | N/A |  url | url | url | url | url | url | url | url | url |  url |  url |  url |
