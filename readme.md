@@ -1,10 +1,21 @@
 # Open edX Changes between releases
 
-This repo includes the `lms/envs/common.py` and `cms/envs/common.py` between Aspen to Palm.
+This repo includes the `lms/envs/common.py` and `cms/envs/common.py` between Aspen to Palm. from the [edx-platform repo](https://github.com/openedx/edx-platform).
 
-The files are added a tag corresponding to their release so you can track the changes simply between two releases.
+The pointing of tracking them is simple to know which features are being added or deleted.
 
-To utilize just pick which release are you currently using and then pick which one you are upgrading to.
+## Important Notes
+
+- This is still a work in progress a might not be accurate, further tracking might be needed, i.e. what if a feature is being defined in a file other than `[cms/lms]/envs/common.py`.
+
+- This doesn't include tracks of [Waffle-toggles](https://github.com/openedx/edx-toggles) which is included from **Koa**.
+
+
+## The Table
+
+The files are being overridden in sequence while after rewrite a tag is issued for the corresponding release so you can track the changes simply between two releases.
+
+To utilize just pick which release are you currently using and then pick which release you are upgrading to.
 
 
 | From/To | Aspen | Birch | Cypress | Dogwood | Eucalyptus| Ficus| Ginkgo | Ironwood | Hawthorn | Juniper| Koa| Lilac | Maple | Nutmeg | Olive | Palm| 
@@ -24,4 +35,4 @@ Lilac | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 Maple | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |  [Maple To Nutmeg](https://github.com/ghassanmas/openedx-releases-diffs/compare/maple...nutmeg) |  [Maple To Olive](https://github.com/ghassanmas/openedx-releases-diffs/compare/maple...olive) |  [Maple To Palm](https://github.com/ghassanmas/openedx-releases-diffs/compare/maple...palm) |
 Nutemg | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |  N/A |  [Nutmeg To Olive](https://github.com/ghassanmas/openedx-releases-diffs/compare/nutmeg...olive) |  [Nutmeg To Palm](https://github.com/ghassanmas/openedx-releases-diffs/compare/nutmeg...palm) |
 Olive | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |  N/A |  N/A |  [Olive To Palm](https://github.com/ghassanmas/openedx-releases-diffs/compare/olive...palm) |
-Palm | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |  N/A |  N/A |  N/A | 
+Palm | N/A | N/A | N/A | N/A |  N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |  N/A |  N/A |  N/A |
